@@ -39,7 +39,7 @@ public class FormManutencoes extends JFrame implements ActionListener{
 	
 	FormManutencoes(){
 		setTitle("Formulario de Manutenção");
-		setBounds(400, 200,750, 500);
+		setBounds(450, 200, 800, 500);
 		painel = new JPanel();
 		painel.setBackground(new Color(255,242,166));
 		setContentPane(painel);

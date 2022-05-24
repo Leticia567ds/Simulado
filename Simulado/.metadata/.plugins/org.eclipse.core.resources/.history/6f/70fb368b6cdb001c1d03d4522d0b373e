@@ -34,12 +34,12 @@ public class FormManutencoes extends JFrame implements ActionListener{
 	private JTextArea Tela;
 	private JButton cadastrar, buscar, deletar, alterar;
 	private int autoId = ProcesssMnutencoes.manutencoes.size() + 1;
-	private String data2 = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+	
 	
 	
 	FormManutencoes(){
 		setTitle("Formulario de Manutenção");
-		setBounds(400, 200,750, 500);
+		setBounds(450, 200, 800, 500);
 		painel = new JPanel();
 		painel.setBackground(new Color(255,242,166));
 		setContentPane(painel);
@@ -70,9 +70,9 @@ public class FormManutencoes extends JFrame implements ActionListener{
 		tfId.setEditable(false);
 		tfId.setBounds(40,30,86,25);
 		painel.add(tfId);
-		tfdata = new JTextField(data2);
+		tfdata = new JTextField();
 		tfdata.setBounds(50,80,86,25);
-		tfdata.setEditable(false);
+		tfdata.setEditable(true);
 		painel.add(tfdata);
 		tfcustoHora = new JTextField();
 		tfcustoHora.setBounds(100,162,86,25);
@@ -140,19 +140,18 @@ public class FormManutencoes extends JFrame implements ActionListener{
 	}
 	
 	private void cadastrar() {
-  String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-		
-		if (tfcustoHora.getText().length() !=0 && tftempGasto.getText().length() !=0) {
+  
+		if (tfdata.getText().length() !=0 && tfcustoHora.getText().length() !=0 && tftempGasto.getText().length() !=0) {
 			
-			ProcesssMnutencoes.manutencoes.add(new Manutencao(autoId , data, Equipamentos.getSelectedItem().toString(),
+			ProcesssMnutencoes.manutencoes.add(new Manutencao(autoId ,tfdata.getText(), Equipamentos.getSelectedItem().toString(),
 			Double.parseDouble(tfcustoHora.getText().toString()),Double.parseDouble(tftempGasto.getText())));
 			  autoId++;
+				limparCampos();
+				preencherAreaDeTexto();
 		} else {
 			JOptionPane.showMessageDialog(this, "Favor Preencher todos as informações");
 		}
-		limparCampos();
-		preencherAreaDeTexto();
-		ProcesssMnutencoes.salvar();
+	
 	}
 	
 	private void limparCampos() {
@@ -203,7 +202,7 @@ public class FormManutencoes extends JFrame implements ActionListener{
 					achou = true;
 					int indice = ProcesssMnutencoes.manutencoes.indexOf(manu);
 					tfId.setText(ProcesssMnutencoes.manutencoes.get(indice).getId("s"));
-					tfdata.setText(ProcesssMnutencoes.manutencoes.get(indice).getData());
+					tfdata.setText(ProcesssMnutencoes.manutencoes.get(indice).getData("s"));
 					Equipamentos.setSelectedIndex(obterIndice(ProcesssMnutencoes.manutencoes.get(indice).getEquipamento()));
 					tfcustoHora.setText(ProcesssMnutencoes.manutencoes.get(indice).getCustoHora("s"));
 					tftempGasto.setText(ProcesssMnutencoes.manutencoes.get(indice).getTempoGasto("s"));

@@ -112,8 +112,8 @@ public class Manutencao {
 
 	@Override
 	public String toString() {
-		return  id + "\t" + data + " \t " + equipamento + " \t " + custoHora
-				+ " \t " + tempGasto + " \t " + getTotal()+ "\n";
+		return  id + "\t" + data + "\t" + equipamento + "\t" + custoHora
+				+ "\t" + tempGasto + "\t" + getTotal();
 	}
 
 	public String toCSV() {

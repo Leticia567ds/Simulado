@@ -6,12 +6,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="ProcesssMnutencoes"/>
+		<item key="selection" value=";"/>
 		<list key="findhistory">
+			<item value=","/>
 			<item value="ProcessaManutencoes"/>
 			<item value="verResultado"/>
 		</list>
 		<list key="replacehistory">
+			<item value=";"/>
 			<item value="ProcesssMnutencoes"/>
 			<item value="Tela"/>
 		</list>

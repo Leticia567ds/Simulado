@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Manutencao {
 
 	private int id;
-	private String data;
+	private Date data;
 	private String equipamento;
 	private Double custoHora;
 	private Double tempGasto;
@@ -17,7 +17,11 @@ public class Manutencao {
 
 	public Manutencao(int id, String data, String equipamento, double custoHora, double tempGasto) {
 		this.id = id;
-		this.data = data;
+		try {
+			this.data = (Date) sdf.parse(data);
+		} catch (ParseException e) {
+			System.out.println(e);
+		}
 		this.equipamento = equipamento;
 		this.custoHora = custoHora;
 		this.tempGasto = tempGasto;
@@ -25,7 +29,12 @@ public class Manutencao {
 	
 	public Manutencao(String linha) {
 		this.id = Integer.parseInt(linha.split(";")[0]);
-		this.data = linha.split(";")[1];
+		try {
+			
+			this.data = (Date) sdf.parse(linha.split(";")[1]);
+		} catch (ParseException e) {
+			System.out.println(e);
+		}
 		this.equipamento = linha.split(";")[2];
 		this.custoHora = Double.parseDouble(linha.split(";")[3]);
 		this.tempGasto = Double.parseDouble(linha.split(";")[4]);
