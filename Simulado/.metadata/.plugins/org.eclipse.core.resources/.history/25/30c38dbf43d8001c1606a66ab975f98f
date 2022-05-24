@@ -1,0 +1,48 @@
+package visao;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class FormManutencoes extends JFrame{
+
+	private static final long serialVersionUID = 1L;
+	private JPanel painel;
+	private JLabel id, data, equipamento , custoHora, tempGasto; 
+	private JTextField tfId, tfequi, tfcustoHora, tftempGasto;
+	
+	FormManutencoes(){
+		setTitle("Formulario de Manutenção");
+		setBounds(100, 100, 800, 600);
+		painel = new JPanel();
+		painel.setBackground(new Color(255,242,166));
+		setContentPane(painel);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(null);
+
+		id = new JLabel("Id:");
+		id.setBounds(20, 20, 120, 40);
+		painel.add(id);
+		data = new JLabel("Data:");
+	    data.setBounds(20, 40, 120, 40);
+	    painel.add(data);
+	    equipamento = new JLabel("Equipmentos:");
+	    equipamento.setBounds(20, 50, 120, 30);
+	    painel.add(equipamento);
+	    custoHora = new JLabel("Custo de hora:");
+	    custoHora.setBounds(20, 60, 120, 30);
+	    painel.add(custoHora);
+	    tempGasto = new JLabel("Tempo Gasto:");
+	    tempGasto.setBounds(20, 70, 120, 30);
+	    painel.add(tempGasto);
+	}
+	public static void main(String[] args) {
+		new 
+		FormManutencoes().setVisible(true); 
+
+	}
+
+}

@@ -1,0 +1,36 @@
+package visao;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class FormManutencoes extends JFrame{
+
+	private static final long serialVersionUID = 1L;
+	private JPanel painel;
+	private JLabel id, data, equipamento , custoHora, tempGasto,total; 
+	private JTextField tfId, tfequi, tfcustoHora, tftempGasto,tftotal;
+	
+	FormManutencoes(){
+		setTitle("Formulario de Manutenção");
+		setBounds(100, 100, 800, 600);
+		painel = new JPanel();
+		painel.setBackground(new Color(255,218,41));
+		setContentPane(painel);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(null);
+
+		id = new JLabel("Id:");
+		id.setBounds(20, 20, 120, 30);
+		painel.add(id);
+	}
+	public static void main(String[] args) {
+		new 
+		FormManutencoes().setVisible(true); 
+
+	}
+
+}
